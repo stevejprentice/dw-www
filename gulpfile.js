@@ -1,17 +1,30 @@
 var gulp        = require('gulp'),
     connect     = require('gulp-connect'),
+    ghPages     = require('gulp-gh-pages'),
     minifyHTML  = require('gulp-minify-html');
     
 var DIST_WEB    = './dist';
 
 gulp.task('default', ['build-web', 'run', 'watch']);
-gulp.task('build-web', ['build-html']);
+gulp.task('build', ['build-html', 'build-config']);
+
+gulp.task('build-config', function() {
+   return gulp.src('./web.config')
+            .pipe(gulp.dest(DIST_WEB));
+});
 
 gulp.task('build-html', function() {
    return gulp.src('./src/index.html')
                 .pipe(minifyHTML())
                 .pipe(gulp.dest(DIST_WEB))
                 .pipe(connect.reload());
+});
+
+gulp.task('deploy', function() {
+    return gulp.src(DIST_WEB + '/**/*.*')
+            .pipe(ghPages({
+                remoteUrl: 'git@github.com:davidwesst/dw-www.git'
+            }));
 });
 
 gulp.task('run', function() {
