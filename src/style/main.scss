@@ -1,5 +1,4 @@
 @import '_normalize';
-
-h1 {
-    color: rgba(255, 0, 255, 0.5);
-}
+@import '_base';
+@import '_small';
+@import '_large';
