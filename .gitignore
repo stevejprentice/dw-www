@@ -3,3 +3,5 @@ dist/
 .publish/
 
 npm-debug.log
+
+_normalize.scss
