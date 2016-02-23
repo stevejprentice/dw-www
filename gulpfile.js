@@ -63,6 +63,13 @@ gulp.task('process-normalize', function() {
                 .pipe(gulp.dest(path.join('./src/style/')));
 });
 
+gulp.task('process-font-awesome', function() {
+   var libSrc = './node_modules/font-awesome/fonts/*';
+   
+   return gulp.src(libSrc)
+                .pipe(gulp.dest(path.join(DIST_WEB, '/fonts')));
+});
+
 gulp.task('process-fonts', function() {
    var fontSrcGlob = './assets/fonts/**/*.{ttf,woff,woff2,eot,svg}';
    
