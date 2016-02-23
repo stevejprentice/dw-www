@@ -25,7 +25,7 @@ gulp.task('build-html', function() {
                 .pipe(connect.reload());
 });
 
-gulp.task('build-style', ['process-normalize', 'process-fonts'], function() {
+gulp.task('build-style', ['process-normalize','process-font-awesome','process-fonts'], function() {
     return gulp.src('./src/**/*.scss')
             .pipe(sass().on('error', sass.logError))
             .pipe(gulp.dest(DIST_WEB))
@@ -56,11 +56,11 @@ gulp.task('watch', function() {
 });
 
 gulp.task('process-normalize', function() {
-    var libSrc = './node_modules/normalize.css/normalize.css';
+    var libSrc = './node_modules/normalize.css/';
     
-    return gulp.src(libSrc)
-                .pipe(rename('_normalize.scss'))
-                .pipe(gulp.dest(path.join('./src/style/')));
+    return gulp.src(path.join(libSrc, 'normalize.css'))
+                .pipe(rename('normalize.scss'))
+                .pipe(gulp.dest(path.join(libSrc, '/scss/')));
 });
 
 gulp.task('process-font-awesome', function() {
