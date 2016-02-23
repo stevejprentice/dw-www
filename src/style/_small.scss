@@ -1,6 +1,9 @@
 //@media (max-width : 544px) {
 
     header.site {
+        @extend .title;
+        font-family: "SourceCodePro-Regular";
+        
         display: flex;
         flex-direction: row;
         background-color: rgb(255, 0, 0);

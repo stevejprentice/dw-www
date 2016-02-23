@@ -1,5 +1,6 @@
 var gulp        = require('gulp'),
     connect     = require('gulp-connect'),
+    flatten     = require('gulp-flatten'),
     ghPages     = require('gulp-gh-pages'),
     minifyHTML  = require('gulp-minify-html'),
     rename      = require('gulp-rename'),
@@ -24,7 +25,7 @@ gulp.task('build-html', function() {
                 .pipe(connect.reload());
 });
 
-gulp.task('build-style', ['process-normalize'], function() {
+gulp.task('build-style', ['process-normalize', 'process-fonts'], function() {
     return gulp.src('./src/**/*.scss')
             .pipe(sass().on('error', sass.logError))
             .pipe(gulp.dest(DIST_WEB))
@@ -60,4 +61,12 @@ gulp.task('process-normalize', function() {
     return gulp.src(libSrc)
                 .pipe(rename('_normalize.scss'))
                 .pipe(gulp.dest(path.join('./src/style/')));
+});
+
+gulp.task('process-fonts', function() {
+   var fontSrcGlob = './assets/fonts/**/*.{ttf,woff,woff2,eot,svg}';
+   
+   return gulp.src(fontSrcGlob)
+                .pipe(flatten())
+                .pipe(gulp.dest(path.join(DIST_WEB, '/fonts')));
 });
