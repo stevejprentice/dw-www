@@ -1,26 +1,39 @@
 //@media (max-width : 544px) {
+    $topHeight: 2em;
+    
+    html, body {
+        height: 100%;
+    }
 
     header.site {
         @extend .title;
-        font-family: "SourceCodePro-Regular";
         
         display: flex;
-        flex-direction: row;
+        position: absolute;
+        top: 0;
+        height: $topHeight;
+        width: 100%;
         background-color: rgb(255, 0, 0);
     }
     
     .main {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        height: 100%;
 
         background-color: rgb(0, 255, 0);
+        
+        .item:first-child {
+            margin-top: $topHeight;
+        }
     }
     
     .links {
         display: flex;
         flex-direction: column;
-        align-self: flex-end;
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
         
         background-color: rgb(0, 255, 255);
         
