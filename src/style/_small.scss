@@ -1,4 +1,4 @@
-//@media (max-width : 544px) {
+@media all {
     $bg-url: url('../img/lobster-fire-mouth.png');
 
     $top-pad: 5.5em;
@@ -10,9 +10,13 @@
     $youtube-red: rgba(229, 45, 39, 1.0);
     $rss-orange: rgba(238, 128, 47, 1.0);
     
-    
     html, body {
         height: 100%;
+        font-family: 'OpenSans-Regular';
+    }
+    
+    .title {
+        font-family: 'SourceCodePro-Regular';
     }
 
     header.site {
@@ -131,4 +135,4 @@
         }
     }
 
-///}
+}
