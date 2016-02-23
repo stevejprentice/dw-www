@@ -25,7 +25,7 @@ gulp.task('build-html', function() {
                 .pipe(connect.reload());
 });
 
-gulp.task('build-style', ['process-normalize','process-font-awesome','process-fonts'], function() {
+gulp.task('build-style', ['process-normalize','process-font-awesome','process-fonts','process-images'], function() {
     return gulp.src('./src/**/*.scss')
             .pipe(sass().on('error', sass.logError))
             .pipe(gulp.dest(DIST_WEB))
@@ -76,4 +76,12 @@ gulp.task('process-fonts', function() {
    return gulp.src(fontSrcGlob)
                 .pipe(flatten())
                 .pipe(gulp.dest(path.join(DIST_WEB, '/fonts')));
+});
+
+gulp.task('process-images', function() {
+   var imageSrcGlob = './assets/images/**/*.{png,jpg,jpeg}';
+   
+   return gulp.src(imageSrcGlob)
+                .pipe(flatten())
+                .pipe(gulp.dest(path.join(DIST_WEB, '/img')));
 });
