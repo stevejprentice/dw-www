@@ -2454,7 +2454,7 @@ th {
   .title, header.site, .links .twitter, .links .youtube, .links .blog, .links .github {
     font-family: 'SourceCodePro-Regular'; }
   header.site {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -2479,7 +2479,7 @@ th {
     background-repeat: no-repeat;
     background-size: contain; }
     .main .item:first-child {
-      margin-top: 5.5em; }
+      margin-top: 1em; }
   .item {
     margin-bottom: 1em; }
     .item span {
@@ -2517,7 +2517,11 @@ th {
     .links .youtube {
       background-color: #e52d27; }
     .links .blog {
-      background-color: #ee802f; } }
+      background-color: #ee802f; }
+  header.name span {
+    color: rgba(0, 255, 0, 0.8);
+    font-size: 3em;
+    margin-bottom: 2em; } }
 
 @media all and (max-width: 320px) and (max-height: 486px), all and (max-width: 480px) and (max-height: 320px) {
   .item span {
@@ -2540,4 +2544,7 @@ th {
   .links .item {
     max-width: inherit; }
     .links .item span {
-      font-size: 3.0em; } }
+      font-size: 3.0em; }
+  header.name span {
+    font-size: 5em;
+    margin-bottom: 2em; } }
