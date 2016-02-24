@@ -1,0 +1,9 @@
+@media all and (orientation: landscape) {
+    .item {
+        max-width: 70%;
+    }
+    
+    .links .item {
+        max-width: inherit;
+    }
+}

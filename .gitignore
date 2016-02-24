@@ -2,4 +2,7 @@ node_modules/
 dist/
 .publish/
 
+*.swp
 npm-debug.log
+
+_normalize.scss
