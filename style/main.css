@@ -2523,17 +2523,17 @@ th {
     font-size: 3em;
     margin-bottom: 2em; } }
 
-@media all and (max-width: 320px) and (max-height: 486px), all and (max-width: 480px) and (max-height: 320px) {
-  .item span {
-    font-size: 1.25em; }
-  .links .item span {
-    font-size: 1em; } }
-
 @media all and (orientation: landscape) {
   .item {
     max-width: 70%; }
   .links .item {
     max-width: inherit; } }
+
+@media all and (max-width: 320px) and (max-height: 486px), all and (max-width: 480px) and (max-height: 320px) {
+  .item span {
+    font-size: 1.25em; }
+  .links .item span {
+    font-size: 1em; } }
 
 @media (min-width: 737px) {
   .item {
