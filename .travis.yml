@@ -5,6 +5,7 @@ node_js:
 branches:
     only:
         - master
+        - stable
 before_script:
     - npm install -g gulp
     - git config --global user.name 'DW via Travis CI'

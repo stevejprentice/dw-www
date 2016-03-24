@@ -6,7 +6,8 @@ var gulp        = require('gulp'),
     rename      = require('gulp-rename'),
     sass        = require('gulp-sass');
     
-var path        = require('path');
+var path        = require('path'),
+    git         = require('git-rev');
     
 var DIST_WEB    = './dist';
 
@@ -33,10 +34,18 @@ gulp.task('build-style', ['process-normalize','process-font-awesome','process-fo
 });
 
 gulp.task('deploy', function() {
-    return gulp.src(DIST_WEB + '/**/*.*')
+    // only deploy stable branch publically
+    git.branch(function(branch) {
+        if(branch === 'stable') {
+            return gulp.src(DIST_WEB + '/**/*.*')
             .pipe(ghPages({
                 remoteUrl: 'git@github.com:davidwesst/dw-www.git'
-            }));
+            }));  
+        }
+        else {
+            console.log('only the stable branch can be deployed with this command')
+        }
+    });
 });
 
 gulp.task('run', function() {
