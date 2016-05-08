@@ -15,7 +15,7 @@ var path        = require('path'),
 var DIST_WEB    = './dist';
 
 gulp.task('default', ['build', 'run', 'watch']);
-gulp.task('build', ['build-html', 'build-style', 'build-config']);
+gulp.task('build', ['build-html', 'build-script', 'build-style', 'build-config']);
 
 gulp.task('build-config', function() {
    return gulp.src('./web.config')
@@ -36,7 +36,7 @@ gulp.task('build-style', ['process-normalize','process-font-awesome','process-fo
             .pipe(connect.reload());
 });
 
-gulp.task('build-script', [], function() {
+gulp.task('build-libs', [], function() {
     let libs = [
         './bower_components/page/page.js'
     ];
@@ -45,6 +45,13 @@ gulp.task('build-script', [], function() {
             .pipe(concat('libs.js'))
             .pipe(gulp.dest(DIST_WEB + '/script'))
             .pipe(connect.reload());
+});
+
+gulp.task('build-script', ['build-libs'], function() {
+    return gulp.src('./src/script/*.js')
+            .pipe(concat('app.js'))
+            .pipe(gulp.dest(DIST_WEB + '/script'))
+            .pipe(connect.reload()); 
 });
 
 gulp.task('deploy', function() {
