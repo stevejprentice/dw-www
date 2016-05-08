@@ -1,0 +1,21 @@
+{
+  "name": "dw-www",
+  "description": "The www subdomain application for davidwesst.com",
+  "main": "index.html",
+  "authors": [
+    "David Wesst <dw@davidwesst.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/davidwesst/dw-www",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "page": "visionmedia/page.js#^1.7.1"
+  }
+}
