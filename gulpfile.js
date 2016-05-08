@@ -1,4 +1,7 @@
+'use strict';
+
 var gulp        = require('gulp'),
+    concat      = require('gulp-concat'),
     connect     = require('gulp-connect'),
     flatten     = require('gulp-flatten'),
     ghPages     = require('gulp-gh-pages'),
@@ -30,6 +33,17 @@ gulp.task('build-style', ['process-normalize','process-font-awesome','process-fo
     return gulp.src('./src/**/*.scss')
             .pipe(sass().on('error', sass.logError))
             .pipe(gulp.dest(DIST_WEB))
+            .pipe(connect.reload());
+});
+
+gulp.task('build-script', [], function() {
+    let libs = [
+        './bower_components/page/page.js'
+    ];
+    
+    return gulp.src(libs)
+            .pipe(concat('libs.js'))
+            .pipe(gulp.dest(DIST_WEB + '/script'))
             .pipe(connect.reload());
 });
 
