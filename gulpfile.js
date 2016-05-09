@@ -80,7 +80,7 @@ gulp.task('run', function() {
 });
 
 gulp.task('watch', function() {
-    //gulp.watch('./src/**/*.ts', ['build-src']);
+    gulp.watch('./src/**/*.js', ['build-script']);
     gulp.watch('./src/*.html', ['build-html']);
     gulp.watch('./src/style/*.scss', ['build-style']);
 });
