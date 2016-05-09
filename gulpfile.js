@@ -22,11 +22,18 @@ gulp.task('build-config', function() {
             .pipe(gulp.dest(DIST_WEB));
 });
 
-gulp.task('build-html', function() {
+gulp.task('build-html', ['build-views'], function() {
    return gulp.src('./src/index.html')
                 .pipe(minifyHTML())
                 .pipe(gulp.dest(DIST_WEB))
                 .pipe(connect.reload());
+});
+
+gulp.task('build-views', function() {
+   return gulp.src('./src/views/*.html')
+                .pipe(minifyHTML())
+                .pipe(gulp.dest(DIST_WEB + '/views'))
+                .pipe(connect.reload()); 
 });
 
 gulp.task('build-style', ['process-normalize','process-font-awesome','process-fonts','process-images'], function() {
@@ -82,6 +89,7 @@ gulp.task('run', function() {
 gulp.task('watch', function() {
     gulp.watch('./src/**/*.js', ['build-script']);
     gulp.watch('./src/*.html', ['build-html']);
+    gulp.watch('./src/views/*.html', ['build-views']);
     gulp.watch('./src/style/*.scss', ['build-style']);
 });
 
