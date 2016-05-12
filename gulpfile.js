@@ -45,6 +45,7 @@ gulp.task('build-style', ['process-normalize','process-font-awesome','process-fo
 
 gulp.task('build-libs', [], function() {
     let libs = [
+        './bower_components/jquery/dist/jquery.min.js',
         './bower_components/page/page.js'
     ];
     

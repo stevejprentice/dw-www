@@ -5,6 +5,7 @@
     // base pages
     page('/', index);
     page('/contact', contact);
+    page('/about', about);
     
     // redirects
     page('/index', '/');
@@ -26,6 +27,10 @@
         get('/views/contact.html');
     }
     
+    function about() {
+        get('/views/about.html');
+    }
+    
     function notFound() {
         get('/views/404.html');
     }
@@ -37,13 +42,20 @@
         let xhr = new XMLHttpRequest();
         xhr.open('GET', url,true);
         xhr.onreadystatechange = function() {
-            if(this.readyState !== 4) return null;
+            if(this.readyState !== 4) return null;  // error handling
             if(this.status !== 200) {
-                
+                // error handling
             }
             document.querySelector('#main p').innerHTML = this.responseText;
         }  
         xhr.send();
     }
     
+    // 
+    //  NAVIGATION MENU
+    //
+    document.querySelector('.nav-toggle')
+        .addEventListener('click', (event)=> {            
+            $('#siteNav').toggleClass('show-nav');
+        });    
 })();

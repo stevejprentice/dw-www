@@ -22,146 +22,41 @@
 }
 
 @media all {
-    $bg-url: url('../img/lobster-fire-mouth.png');
-
-    $top-pad: 1em;
-    $white: rgba(250, 250, 250, 1.0);
-    $black: rgba(69,72,77, 1.0);
-    $green: rgba(0, 255, 0, 0.8);
-    $faded-black: rgba(0,0,0, 0.8);
-    
-    $twitter-blue: rgba(85, 172, 238, 1.0);
-    $youtube-red: rgba(229, 45, 39, 1.0);
-    $rss-orange: rgba(238, 128, 47, 1.0);
-    
-    html, body {
-        height: 100%;
-        font-family: 'OpenSans-Regular';
-    }
-    
-    .title {
-        font-family: 'SourceCodePro-Regular';
-    }
-
     header.site {
-        @extend .title;
-        
-        display: none; // flex to make visible
-        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
+        justify-content: space-between;
         
-        position: absolute;
-        top: 0;
-        width: 100%;
-        padding: 0.25em 0;
-        
-        color: rgba(0, 255, 0, 0.8);
-        font-weight: bold;
-        font-size: 2em;
-        
-        border-bottom: 1px solid $white;
-        
-        background: rgb(69,72,77);
-        background: -moz-linear-gradient(top,  rgba(69,72,77,1) 0%, rgba(0,0,0,1) 100%);
-        background: -webkit-linear-gradient(top,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
-        background: linear-gradient(to bottom,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 );
-    }
-    
-    .main {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-
-        background:
-                linear-gradient(
-                  $faded-black,
-                  $faded-black
-                ),
-                $bg-url;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        
-        .item:first-child {
-            margin-top: $top-pad;
-        }
-    }
-    
-    .item {
-        margin-bottom: 1em;
-        
-        span {
-            color: #fefefe;
-            background-color: $black;
-            font-size: 1.75em;
-            text-transform: uppercase;
+        .nav-toggle {
+            font-size: 2em;
+            padding: 0.5em;
         }
         
-        a {
-            text-decoration: none;
-            color: $white;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        i {
-            margin: 0.25em 0.25em;
-        }
-        
-        i.fa-external-link {
-            color: rgba(250, 250, 250, 0.5);
-            font-size: 0.75em;
-        }
-    }
-    
-    .links {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        bottom: 0px;
-        right: 0px;
-        
-        ul, ul > li{
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            text-align: right;
-        }
-        
-        .item {
-            margin-bottom: 1em;
+        nav {
+            display: none;
+            width: 100%;
             
-            span {
-                font-size: 1.5em;
+            &.show-nav {
+                display: flex;
+                flex-direction: column;
+                
+                a {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+            
+            .social-links {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
             }
         }
-        
-        .twitter {
-            @extend .title;
-            background-color: $twitter-blue;
-        }
-        
-        .youtube {
-            @extend .title;
-            background-color: $youtube-red;
-        }
-        
-        .blog {
-            @extend .title;
-            background-color: $rss-orange;
-        }
-        
-        .github {
-            @extend .title;
-        }
     }
     
-    header.name span {
-        color: $green;
-        font-size: 3em;
-        margin-bottom: 2em;
+    a {
+        text-decoration: none;
     }
 }
