@@ -51,4 +51,11 @@
         xhr.send();
     }
     
+    // 
+    //  NAVIGATION MENU
+    //
+    document.querySelector('.nav-toggle')
+        .addEventListener('click', (event)=> {            
+            $('#siteNav').toggleClass('show-nav');
+        });    
 })();
