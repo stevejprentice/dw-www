@@ -37,16 +37,26 @@
         nav {
             display: none;
             width: 100%;
-        }
-        
-        nav.show-nav {
-            display: flex;
-            flex-direction: column;
             
-            a {
-                width: 100%;
-                text-align: center;
+            &.show-nav {
+                display: flex;
+                flex-direction: column;
+                
+                a {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+            
+            .social-links {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
             }
         }
+    }
+    
+    a {
+        text-decoration: none;
     }
 }
