@@ -59,4 +59,13 @@
     a {
         text-decoration: none;
     }
+    
+    #content {
+        transition: transform 300ms ease-out, opacity 300ms ease-out;
+    }
+    
+    #content.transition {
+        transform: translateY(50px);
+        opacity: 0;
+    }
 }

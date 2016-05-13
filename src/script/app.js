@@ -2,6 +2,22 @@
 'use strict';
 
 (function() {
+    var content = document.querySelector('#content');
+    
+    // "middleware"
+    page('*', function(ctx,  next){
+        if (ctx.init) {
+            next();
+        } 
+        else {
+            content.classList.add('transition');
+            setTimeout(function(){
+            content.classList.remove('transition');
+            next();
+            }, 300);
+        }
+    });
+    
     // base pages
     page('/', index);
     page('/contact', contact);
@@ -46,7 +62,7 @@
             if(this.status !== 200) {
                 // error handling
             }
-            document.querySelector('#main p').innerHTML = this.responseText;
+            content.innerHTML = this.responseText;
         }  
         xhr.send();
     }
