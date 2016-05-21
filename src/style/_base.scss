@@ -41,6 +41,10 @@
             &.show-nav {
                 display: flex;
                 flex-direction: column;
+                background-color: rgba(0,255,255,1);
+                position: fixed;
+                top: 5em;
+                left: 0;
                 
                 a {
                     width: 100%;
@@ -62,10 +66,24 @@
     
     #content {
         transition: transform 300ms ease-out, opacity 300ms ease-out;
-    }
-    
-    #content.transition {
-        transform: translateY(50px);
-        opacity: 0;
+        
+        &.transition {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        
+        .above-fold {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        .below-fold {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
+        }
     }
 }

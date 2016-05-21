@@ -6,14 +6,15 @@
     
     // "middleware"
     page('*', function(ctx,  next){
-        if (ctx.init) {
+        if (ctx.init || ctx.hash) {
             next();
-        } 
+        }
         else {
             content.classList.add('transition');
             setTimeout(function(){
-            content.classList.remove('transition');
-            next();
+                $(document).scrollTop(0);
+                content.classList.remove('transition');
+                next();
             }, 300);
         }
     });
@@ -25,6 +26,8 @@
     
     // redirects
     page('/index', '/');
+    
+    //
     
     // catch all
     page('*', notFound);
