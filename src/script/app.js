@@ -76,5 +76,6 @@
     document.querySelector('.nav-toggle')
         .addEventListener('click', (event)=> {            
             $('#siteNav').toggleClass('show-nav');
+            $('.nav-toggle').toggleClass('open');
         });    
 })();

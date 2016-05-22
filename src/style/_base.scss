@@ -28,8 +28,6 @@ $featureFont: 'SourceCodePro-Regular';
 $regularFont: 'OpenSans-Regular';
 $medium: 1.5em;
 
-$headerHeight: 5em;
-
 @media all {
     html, body {
         font-family: $regularFont;
@@ -47,49 +45,52 @@ $headerHeight: 5em;
         justify-content: space-between;
         position: fixed;
         width: 100%;
-        height: $headerHeight;
         
         .nav-toggle {
             font-size: 2em;
-        }
-        
-        nav {
-            display: none;
-            font-size: 1.25em;
-            width: 100%;
+            transition: transform 250ms ease-in;
             
-            &.show-nav {
-                display: flex;
-                flex-direction: column;
-                background-color: $black;
-                position: fixed;
-                top: 5em;
-                left: 0;
-                         
-                a {
-                    width: 100%;
-                    text-align: center;
-                }
-            }
-            
-            .social-links {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-around;
+            &.open {
+                transform: rotate(90deg);
             }
         }
     }
     
-    a {
-        color: $green;
-        text-decoration: none;
+    nav {
+        display: flex;
+        position: fixed;
+        flex-direction: column;
+        background-color: $black;
+        font-size: 1.25em;
+        width: 100%;
+        top: -10em;
+        transition: top 500ms ease-in;
         
-        &:hover {
-            text-decoration: underline;
+        &.show-nav {
+            opacity: 1;            
+            top: 4.5em;
+            left: 0;
         }
         
-        &:visited {
-            color: $darkGreen;
+        .social-links {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        
+        a {
+            color: $green;
+            text-decoration: none;
+            width: 100%;
+            text-align: center;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+            
+            &:visited {
+                color: $darkGreen;
+            }
         }
     }
     
