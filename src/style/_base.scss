@@ -21,31 +21,51 @@
     font-style: normal;
 }
 
+$green: rgba(0,255,0,1);
+$darkGreen: rgba(0,80,0,1);
+$black: rgba(20,20,20,1);
+$featureFont: 'SourceCodePro-Regular';
+$regularFont: 'OpenSans-Regular';
+$medium: 1.5em;
+
+$headerHeight: 5em;
+
 @media all {
+    html, body {
+        font-family: $regularFont;
+    }
+    
     header.site {
+        font-family: $featureFont;
+        color: $green;
+        background-color: $black;
+        
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
+        position: fixed;
+        width: 100%;
+        height: $headerHeight;
         
         .nav-toggle {
             font-size: 2em;
-            padding: 0.5em;
         }
         
         nav {
             display: none;
+            font-size: 1.25em;
             width: 100%;
             
             &.show-nav {
                 display: flex;
                 flex-direction: column;
-                background-color: rgba(0,255,255,1);
+                background-color: $black;
                 position: fixed;
                 top: 5em;
                 left: 0;
-                
+                         
                 a {
                     width: 100%;
                     text-align: center;
@@ -61,7 +81,16 @@
     }
     
     a {
+        color: $green;
         text-decoration: none;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+        
+        &:visited {
+            color: $darkGreen;
+        }
     }
     
     #content {
