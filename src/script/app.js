@@ -77,5 +77,10 @@
         .addEventListener('click', (event)=> {            
             $('#siteNav').toggleClass('show-nav');
             $('.nav-toggle').toggleClass('open');
-        });    
+        });
+        
+    $('nav.site a').click((event)=> {
+        $('.nav-toggle').removeClass('open');
+        $('nav.site').removeClass('show-nav');
+    });
 })();

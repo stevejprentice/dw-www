@@ -21,12 +21,15 @@
     font-style: normal;
 }
 
+$amber: rgba(255, 191, 0, 1);
 $green: rgba(0,255,0,1);
 $darkGreen: rgba(0,80,0,1);
 $black: rgba(20,20,20,1);
 $featureFont: 'SourceCodePro-Regular';
 $regularFont: 'OpenSans-Regular';
 $medium: 1.5em;
+
+$shortAnimation: 250ms;
 
 @media all {
     html, body {
@@ -45,57 +48,65 @@ $medium: 1.5em;
         justify-content: space-between;
         position: fixed;
         width: 100%;
+        padding: 0 0.25em;
+        
+        h1 {
+            margin-left: 0.5em;
+        }
         
         .nav-toggle {
             font-size: 2em;
-            transition: transform 250ms ease-in;
+            margin-right: 0.5em;
+            transition: transform $shortAnimation ease-in;
             
             &.open {
                 transform: rotate(90deg);
             }
         }
-    }
-    
-    nav {
-        display: flex;
-        position: fixed;
-        flex-direction: column;
-        background-color: $black;
-        font-size: 1.25em;
-        width: 100%;
-        top: -10em;
-        transition: top 500ms ease-in;
         
-        &.show-nav {
-            opacity: 1;            
+        nav {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            background-color: $black;
+            font-size: 1.25em;
+            width: 100%;
             top: 4.5em;
             left: 0;
-        }
-        
-        .social-links {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-        }
-        
-        a {
-            color: $green;
-            text-decoration: none;
-            width: 100%;
-            text-align: center;
+            max-height: 0px;
+            transition: max-height $shortAnimation ease-in;
+            overflow: hidden;
             
-            &:hover {
-                text-decoration: underline;
+            &.show-nav {
+                max-height: 500px;
             }
             
-            &:visited {
-                color: $darkGreen;
+            .social-links {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+            
+            a {
+                color: $green;
+                text-decoration: none;
+                width: 100%;
+                text-align: center;
+                
+                &:visited {
+                    color: $darkGreen;
+                }
+                
+                &:hover {
+                    color: $amber;
+                }
             }
         }
     }
-    
+       
     #content {
         transition: transform 300ms ease-out, opacity 300ms ease-out;
+        padding: 0 0.5em;
         
         &.transition {
             transform: translateY(50px);
