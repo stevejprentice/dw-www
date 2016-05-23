@@ -29,7 +29,7 @@ $featureFont: 'SourceCodePro-Regular';
 $regularFont: 'OpenSans-Regular';
 $medium: 1.5em;
 
-$shortAnimation: 250ms;
+$shortAnimation: 300ms;
 
 @media all {
     html, body {
@@ -105,11 +105,11 @@ $shortAnimation: 250ms;
     }
        
     #content {
-        transition: transform 300ms ease-out, opacity 300ms ease-out;
+        transition: transform $shortAnimation ease-out, opacity 300ms ease-out;
         padding: 0 0.5em;
         
         &.transition {
-            transform: translateY(50px);
+            transform: translateY(-25px);
             opacity: 0;
         }
         
