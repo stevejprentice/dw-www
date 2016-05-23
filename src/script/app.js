@@ -21,13 +21,10 @@
     
     // base pages
     page('/', index);
-    page('/contact', contact);
     page('/about', about);
     
     // redirects
     page('/index', '/');
-    
-    //
     
     // catch all
     page('*', notFound);
@@ -40,10 +37,6 @@
     //
     function index() {
         get('/views/home.html');
-    }
-    
-    function contact() {
-        get('/views/contact.html');
     }
     
     function about() {
