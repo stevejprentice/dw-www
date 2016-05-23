@@ -73,14 +73,16 @@
     // 
     //  NAVIGATION MENU
     //
-    document.querySelector('.nav-toggle')
-        .addEventListener('click', (event)=> {            
-            $('#siteNav').toggleClass('show-nav');
-            $('.nav-toggle').toggleClass('open');
-        });
-        
-    $('nav.site a').click((event)=> {
+    function toggleMenu() {
+        $('#siteNav').toggleClass('show-nav');
+        $('.nav-toggle').toggleClass('open');
+    }
+    
+    function closeMenu() {
         $('.nav-toggle').removeClass('open');
         $('nav.site').removeClass('show-nav');
-    });
+    }
+    
+    $('.nav-toggle').click(toggleMenu);
+    $('nav.site a').click(closeMenu);
 })();
