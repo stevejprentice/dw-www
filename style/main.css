@@ -2585,6 +2585,8 @@ th {
         text-decoration: none;
         width: 100%;
         text-align: center; }
+        header.site nav a.small {
+          font-size: 0.75em; }
         header.site nav a:visited {
           color: #005000; }
         header.site nav a:hover {
