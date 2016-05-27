@@ -5,6 +5,7 @@ branches:
     only:
         - master
 before_script:
+    - npm install -g bower
     - npm install -g gulp
     - git config --global user.name 'DW via Travis CI'
     - git config --global user.email 'questions@davidwesst.com'
