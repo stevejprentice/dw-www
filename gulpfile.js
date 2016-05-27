@@ -66,18 +66,10 @@ gulp.task('build-script', ['build-libs'], function() {
 });
 
 gulp.task('deploy', function() {
-    // only deploy stable branch publically
-    git.branch(function(branch) {
-        if(branch === 'stable') {
-            return gulp.src(DIST_WEB + '/**/*.*')
-            .pipe(ghPages({
-                remoteUrl: 'git@github.com:davidwesst/dw-www.git'
-            }));  
-        }
-        else {
-            console.log('only the stable branch can be deployed with this command')
-        }
-    });
+    return gulp.src(DIST_WEB + '/**/*.*')
+    .pipe(ghPages({
+        remoteUrl: 'git@github.com:davidwesst/dw-www.git'
+    })); 
 });
 
 gulp.task('run', function() {
