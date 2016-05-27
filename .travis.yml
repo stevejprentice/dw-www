@@ -5,7 +5,6 @@ node_js:
 branches:
     only:
         - master
-        - stable
 before_script:
     - npm install -g gulp
     - git config --global user.name 'DW via Travis CI'
@@ -13,4 +12,5 @@ before_script:
     - sed -i'' "s~git@github.com:davidwesst/dw-www.git~https://${GH_TOKEN}:x-oauth-basic@github.com/davidwesst/dw-www.git~" gulpfile.js
 script:
     - gulp build
+    - if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "master" ]; then exit 0; fi
     - gulp deploy
