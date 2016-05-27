@@ -36,6 +36,7 @@ $featureFont: 'SourceCodePro-Regular';
 $regularFont: 'OpenSans-Regular';
 $medium: 1.5em;
 $large: 2em;
+$small: 0.75em;
 
 $shortAnimation: 300ms;
 
@@ -101,6 +102,10 @@ $shortAnimation: 300ms;
                 text-decoration: none;
                 width: 100%;
                 text-align: center;
+                
+                &.small {
+                    font-size: $small;
+                }
                 
                 &:visited {
                     color: $darkGreen;

@@ -7,10 +7,11 @@ var gulp        = require('gulp'),
     ghPages     = require('gulp-gh-pages'),
     minifyHTML  = require('gulp-minify-html'),
     rename      = require('gulp-rename'),
+    replace     = require('gulp-replace'),
     sass        = require('gulp-sass');
     
 var path        = require('path'),
-    git         = require('git-rev');
+    git         = require('git-rev-sync');
     
 var DIST_WEB    = './dist';
 
@@ -24,6 +25,8 @@ gulp.task('build-config', function() {
 
 gulp.task('build-html', ['build-views'], function() {
    return gulp.src('./src/index.html')
+                .pipe(replace('%%COMMIT-ID%%', git.long()))
+                .pipe(replace('%%SHORT-COMMIT-ID%%', git.short()))
                 .pipe(minifyHTML())
                 .pipe(gulp.dest(DIST_WEB))
                 .pipe(connect.reload());
