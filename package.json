@@ -18,7 +18,6 @@
   "homepage": "https://github.com/davidwesst/dw-www#readme",
   "devDependencies": {
     "font-awesome": "^4.5.0",
-    "git-rev": "^0.2.1",
     "git-rev-sync": "^1.6.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",

@@ -1,7 +1,6 @@
 language: node_js
 node_js:
-    - "stable"
-    - "4.2"
+    - "4.4"
 branches:
     only:
         - master
@@ -12,5 +11,5 @@ before_script:
     - sed -i'' "s~git@github.com:davidwesst/dw-www.git~https://${GH_TOKEN}:x-oauth-basic@github.com/davidwesst/dw-www.git~" gulpfile.js
 script:
     - gulp build
-    - if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "master" ]; then exit 0; fi
-    - gulp deploy
+    - echo $TRAVIS_NODE_VERSION
+    - if [ "$TRAVIS_NODE_VERSION" == "v4.4"] && ["$TRAVIS_BRANCH" != "master" ] && ["$TRAVIS_TEST_RESULT" == 0]; then gulp deploy; fi
