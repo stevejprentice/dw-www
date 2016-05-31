@@ -138,10 +138,10 @@ $shortAnimation: 300ms;
             background-color: $grey;
             margin: 0 0.25em;
             padding: 0 0.5em 1em 0.5em;
-            text-align: justify;
             
             p {
                 margin: 1em 0.5em 0 0.5em;
+                text-align: justify;
             }
             
             a {
@@ -211,9 +211,7 @@ $shortAnimation: 300ms;
             }
         }
         
-        #cv {
-            padding-bottom: 5em;
-            
+        #cv {            
             article {
                 display: flex;
                 flex-direction: row;
