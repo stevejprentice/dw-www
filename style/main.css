@@ -2565,8 +2565,7 @@ th {
     */
   .bg-onstage, body {
     background-image: url("/img/bg-stage.jpg");
-    background-position-y: 20%;
-    background-position-x: 75%;
+    background-position: 75% 20%;
     background-attachment: fixed;
     background-repeat: no-repeat; }
   html, body {
@@ -2676,16 +2675,18 @@ th {
           background-color: #4099ff; }
         #content .link-banner a.youtube {
           background-color: #cd201f; }
-    #content #cv article {
+    #content .cv p:first-of-type {
+      width: 100%; }
+    #content .cv article {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       align-items: center; }
-      #content #cv article h4 {
+      #content .cv article h4 {
         width: 100%; }
-      #content #cv article fa {
+      #content .cv article fa {
         width: 40%; }
-      #content #cv article ul {
+      #content .cv article ul {
         width: 60%; } }
 
 @media (min-width: 737px) {
