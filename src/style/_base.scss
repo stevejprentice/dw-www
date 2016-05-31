@@ -146,7 +146,7 @@ $shortAnimation: 300ms;
        
     #content {
         transition: transform $shortAnimation ease-out, opacity 300ms ease-out;
-        padding: 0 0.5em 0 0.5em;
+        padding: 0 0.5em 5em 0.5em;
         
         section > article {
             background-color: $grey;
@@ -181,10 +181,13 @@ $shortAnimation: 300ms;
             opacity: 0;
         }
         
-        .above-fold, .below-fold {
+        .above-fold, .below-fold > section {
             display: flex;
             flex-direction: column;
             justify-content: center;
+        }
+        
+        .above-fold {
             min-height: 100vh;
         }
         
