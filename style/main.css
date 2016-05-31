@@ -2560,8 +2560,22 @@ th {
   font-style: normal; }
 
 @media all {
+  /*
+        Mixins
+    */
+  .bg-onstage, body {
+    background-image: url("/img/bg-stage.jpg");
+    background-position-y: 20%;
+    background-position-x: 75%;
+    background-attachment: fixed;
+    background-repeat: no-repeat; }
   html, body {
-    font-family: "OpenSans-Regular"; }
+    font-family: "OpenSans-Regular";
+    color: gainsboro; }
+  h1, h2, h3 {
+    color: lime; }
+  h4, h5, h6 {
+    color: #00b400; }
   header.site {
     font-family: "SourceCodePro-Regular";
     color: lime;
@@ -2615,8 +2629,24 @@ th {
   #content {
     transition: transform 300ms ease-out, opacity 300ms ease-out;
     padding: 0 0.5em 0 0.5em; }
+    #content section > article {
+      background-color: #323232;
+      margin: 0 0.25em;
+      padding: 0 0.5em 1em 0.5em; }
+      #content section > article p {
+        margin: 1em 0.5em 0 0.5em;
+        text-align: justify; }
+      #content section > article a {
+        color: #ffbf00;
+        text-decoration: none; }
+        #content section > article a:hover {
+          color: #ff7900; }
+      #content section > article p:first-of-type {
+        margin-top: 0em; }
+      #content section > article p:last-child {
+        margin-bottom: 0.5em; }
     #content.transition {
-      transform: translateY(-25px);
+      transform: translateY(25px);
       opacity: 0; }
     #content .above-fold, #content .below-fold {
       display: flex;
@@ -2630,7 +2660,7 @@ th {
       align-self: center; }
       #content .link-banner a {
         background-color: #141414;
-        color: #fafafa;
+        color: gainsboro;
         cursor: pointer;
         font-size: 1.5em;
         padding: 0.5em 1em;
@@ -2646,19 +2676,17 @@ th {
           background-color: #4099ff; }
         #content .link-banner a.youtube {
           background-color: #cd201f; }
-    #content #cv {
-      padding-bottom: 5em; }
-      #content #cv article {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center; }
-        #content #cv article h4 {
-          width: 100%; }
-        #content #cv article fa {
-          width: 40%; }
-        #content #cv article ul {
-          width: 60%; } }
+    #content #cv article {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center; }
+      #content #cv article h4 {
+        width: 100%; }
+      #content #cv article fa {
+        width: 40%; }
+      #content #cv article ul {
+        width: 60%; } }
 
 @media (min-width: 737px) {
   body {
@@ -2669,7 +2697,7 @@ th {
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-    width: 20%; }
+    width: calc(25% - 1em); }
     header.site h1 {
       text-align: center;
       font-size: 2em; }
@@ -2685,7 +2713,4 @@ th {
   #content {
     width: 100%;
     padding-left: 25%;
-    padding-top: 0; }
-    #content.transition {
-      transform: translatex(25px);
-      opacity: 0; } }
+    padding-top: 0; } }
