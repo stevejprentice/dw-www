@@ -44,9 +44,24 @@ $small: 0.75em;
 $shortAnimation: 300ms;
 
 @media all {
+    /*
+        Mixins
+    */
+    .bg-onstage {
+        background-image: url('/img/bg-stage.jpg');
+        background-position-y: 20%;
+        background-position-x: 75%;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+    
     html, body {
         font-family: $regularFont;
         color: $white;
+    }
+    
+    body {
+        @extend .bg-onstage;
     }
     
     h1, h2, h3 {
@@ -163,7 +178,7 @@ $shortAnimation: 300ms;
         }
         
         &.transition {
-            transform: translateY(-25px);
+            transform: translateY(25px);
             opacity: 0;
         }
         
