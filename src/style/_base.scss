@@ -49,8 +49,7 @@ $shortAnimation: 300ms;
     */
     .bg-onstage {
         background-image: url('/img/bg-stage.jpg');
-        background-position-y: 20%;
-        background-position-x: 75%;
+        background-position: 75% 20%;
         background-attachment: fixed;
         background-repeat: no-repeat;
     }
@@ -226,7 +225,11 @@ $shortAnimation: 300ms;
             }
         }
         
-        #cv {            
+        .cv {
+            p:first-of-type {
+                width: 100%;
+            }         
+            
             article {
                 display: flex;
                 flex-direction: row;
