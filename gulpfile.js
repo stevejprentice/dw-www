@@ -59,8 +59,8 @@ gulp.task('build-libs', [], function() {
 });
 
 gulp.task('build-script', ['build-libs'], function() {
-    return gulp.src('./src/script/*.js')
-            .pipe(concat('app.js'))
+    return gulp.src('./src/script/main.js')
+            .pipe(concat('main.js'))
             .pipe(gulp.dest(DIST_WEB + '/script'))
             .pipe(connect.reload()); 
 });

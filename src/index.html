@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <script src="https://use.fontawesome.com/d389107f37.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
         <link rel="stylesheet" href="style/main.css" />
     </head>
     <body>
@@ -65,7 +66,7 @@
                 <article class="o-container o-container--large o-grid o-grid--small-full o-grid--medium-fit">
                     <article class="o-grid__cell">
                         <h5 class="c-heading c-heading--small">Technical Blog</h5>
-                        <ul class="c-list--unstyled">
+                        <ul id="techPosts" class="c-list--unstyled">
                             <li class="c-list__item">Post Title</li>
                             <li class="c-list__item">Post Title</li>
                             <li class="c-list__item">Post Title</li>
@@ -75,7 +76,7 @@
                     </article>
                     <article class="o-grid__cell">
                         <h5 class="c-heading c-heading--small">Gamedev Blog</h5>
-                        <ul class="c-list--unstyled">
+                        <ul id="gamePosts" class="c-list--unstyled">
                             <li class="c-list__item">Post Title</li>
                             <li class="c-list__item">Post Title</li>
                             <li class="c-list__item">Post Title</li>
@@ -92,7 +93,7 @@
             </article>
         </footer>
 
-
+        <script src="script/main.js"></script>
         <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
