@@ -39,7 +39,7 @@ gulp.task('build-views', function() {
                 .pipe(connect.reload()); 
 });
 
-gulp.task('build-style', ['process-normalize','process-font-awesome','process-fonts','process-images'], function() {
+gulp.task('build-style', ['process-images'], function() {
     return gulp.src('./src/**/*.scss')
             .pipe(sass().on('error', sass.logError))
             .pipe(gulp.dest(DIST_WEB))
