@@ -14,7 +14,19 @@
 
                 for(let i = 0; i < 5 && i <= posts.length; i++) {
                     let currPost = posts[i];
-                    $(listSelector).append('<li><a href="' + currPost.permalink + '">' +  moment(currPost.date).format('MM/DD/YYYY') + ' | ' + currPost.title + '</a></li>');
+                    let content = [];
+                    content.push('<li>');
+                    content.push('<a class="post" href="' + currPost.permalink + '">');
+                    content.push('<div class="post-date">');
+                    content.push(moment(currPost.date).format('MM/DD/YYYY'));
+                    content.push('</div>');
+                    content.push('<div class="post-title">');
+                    content.push(currPost.title);
+                    content.push('</div>');
+                    content.push('</a>');
+                    content.push('</li>');
+
+                    $(listSelector).append(content.join(''));
                 }
             }
 

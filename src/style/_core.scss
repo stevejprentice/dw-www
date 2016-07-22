@@ -73,6 +73,21 @@ FOOTER {
     text-align: center;
 }
 
+.post {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 3em;
+
+    .post-date {
+        width: 30%;
+    }
+
+    .post-title {
+        width: 60%;
+    }
+}
+
 .sr-only {
     position: absolute;
     width: 1px;
