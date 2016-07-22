@@ -7,17 +7,39 @@
     DW.techPosts = [];
 
     DW.displayPosts = 
-        ()=> {
-            $('#techPosts, #gamedevPosts').empty();
+        (postType)=> {
+            
+            function showPosts(listSelector, posts) {
+                $(listSelector).empty();
 
-            for(let i = 0; i < 5 && i <= DW.techPosts.length; i++) {
-                let currPost = DW.techPosts[i];
-                $('#techPosts').append('<li><a href="' + currPost.permalink + '">' + currPost.title + '</a></li>');
+                for(let i = 0; i < 5 && i <= posts.length; i++) {
+                    let currPost = posts[i];
+                    $(listSelector).append('<li><a href="' + currPost.permalink + '">' +  moment(currPost.date).format('MM/DD/YYYY') + ' | ' + currPost.title + '</a></li>');
+                }
             }
 
-            for(let i = 0; i < 5 && i <= DW.techPosts.length; i++) {
-                let currPost = DW.gameDevPosts[i];
-                $('#gamedevPosts').append('<li>' + currPost.title + '</li>');
+            function displayNoPostMessage(listSelector) {
+                $(listSelector).empty();
+
+                $(listSelector).append('<li>' + 'There are currently no posts of this type.<br /><br /> Checkout <a href="https://blog.davidwesst.com">DW\'s blog</a> for other posts.' + '</li>');
+            }
+
+            // technology posts
+            let techPostsSelector = '#techPosts';
+            if(DW.techPosts.length > 0) {
+                showPosts(techPostsSelector, DW.techPosts);
+            }
+            else {
+                displayNoPostMessage(techPostsSelector);
+            }
+
+            // gamedev posts
+            let gameDevPostSelector = '#gamedevPosts';
+            if(DW.gameDevPosts.length > 0) {
+                showPosts(gameDevPostSelector, DW.gameDevPosts);
+            }
+            else {
+                displayNoPostMessage(gameDevPostSelector);
             }
         }
 
