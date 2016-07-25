@@ -1,8 +1,8 @@
 //@import '../../node_modules/normalize.css/scss/normalize';
 //@import '../../node_modules/font-awesome/scss/font-awesome';
 
-// external libs from CDN
-@import 'https://cdn.jsdelivr.net/blazecss/latest/blaze.min.css';
+@import '../../bower_components/blaze/dist/scss/blaze';
+@import '../../bower_components/font-awesome/scss/font-awesome';
 
 // my styles
 @import '_core';

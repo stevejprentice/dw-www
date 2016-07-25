@@ -39,7 +39,7 @@ gulp.task('build-views', function() {
                 .pipe(connect.reload()); 
 });
 
-gulp.task('build-style', ['process-images'], function() {
+gulp.task('build-style', ['process-images','process-blaze','process-fonts','process-font-awesome'], function() {
     return gulp.src('./src/**/*.scss')
             .pipe(sass().on('error', sass.logError))
             .pipe(gulp.dest(DIST_WEB))
@@ -49,7 +49,8 @@ gulp.task('build-style', ['process-images'], function() {
 gulp.task('build-libs', [], function() {
     let libs = [
         './bower_components/jquery/dist/jquery.min.js',
-        './bower_components/page/page.js'
+        './bower_components/moment/min/moment.min.js',
+        './bower_components/underscore/underscore-min.js'
     ];
     
     return gulp.src(libs)
@@ -98,10 +99,18 @@ gulp.task('process-normalize', function() {
 });
 
 gulp.task('process-font-awesome', function() {
-   var libSrc = './node_modules/font-awesome/fonts/*';
-   
-   return gulp.src(libSrc)
+    var fontSrcGlob = './bower_components/font-awesome/fonts/**/*.{ttf,woff,woff2,eot,svg}';
+    return gulp.src(fontSrcGlob)
+                .pipe(flatten())
                 .pipe(gulp.dest(path.join(DIST_WEB, '/fonts')));
+});
+
+gulp.task('process-blaze', function() {
+   var libSrc = './bower_components/blaze/dist/';
+   
+    return gulp.src(path.join(libSrc, 'blaze.min.css'))
+                .pipe(rename('blaze.scss'))
+                .pipe(gulp.dest(path.join(libSrc, '/scss/')));
 });
 
 gulp.task('process-fonts', function() {
