@@ -87,27 +87,40 @@ HEADER.splash {
             transition-timing-function: ease-out;
             color: $green;
         }
+
+        i {
+            margin: 0 0.25em;
+        }
     }
 
     .content-wrapper {
         width: 100%;
         background-color: $black-faded;
-        padding-bottom: 48px;
+        padding-bottom: 64px;
     }
 }
 
+UL.unstyled-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+UL.inline-list {
+    display: flex;
+    justify-content: center;
+}
+
 FOOTER {
+    background-color: $black-faded;
+    padding: 2.5em 0;
     text-align: center;
     font-size: xx-small;
 }
 
-.about, .posts, FOOTER {
+.about, .posts {
     background-color: $black-faded;
-
     padding: 1.5em 0;
-}
-
-.about {
     margin-bottom: 10em;
 }
 
@@ -118,15 +131,15 @@ FOOTER {
 .post {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    height: 3em;
+    justify-content: space-between;
+    min-height: 3.5em;
 
     .post-date {
         width: 30%;
     }
 
     .post-title {
-        width: 60%;
+        width: 65%;
     }
 }
 

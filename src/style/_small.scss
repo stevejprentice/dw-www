@@ -1,9 +1,19 @@
-@media all and (max-width: 320px) and (max-height: 486px), all and (max-width: 480px) and (max-height: 320px) {
-    .item span {
-        font-size: 1.25em;
+@media all and (max-width: 375px) and (max-height: 629px) {
+    .bg-color-stage {
+        background-position-x: 60%;
     }
-    
-    .links .item span {
-        font-size: 1em;
+
+    HEADER.splash {
+        h1 {
+            font-size: 3em;
+        }
+
+        h3 {
+            font-size: 1.5em;
+        }
+
+        .content-wrapper {
+            padding-bottom: 32px;
+        }
     }
 }

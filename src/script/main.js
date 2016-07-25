@@ -18,7 +18,7 @@
                     content.push('<li>');
                     content.push('<a class="post" href="' + currPost.permalink + '">');
                     content.push('<div class="post-date">');
-                    content.push(moment(currPost.date).format('MM/DD/YYYY'));
+                    content.push(moment(currPost.date).format('YYYY-MM-DD'));
                     content.push('</div>');
                     content.push('<div class="post-title">');
                     content.push(currPost.title);
