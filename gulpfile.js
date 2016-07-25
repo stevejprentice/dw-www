@@ -24,7 +24,10 @@ gulp.task('build-config', function() {
 });
 
 gulp.task('build-html', ['build-views'], function() {
+    console.log(git.tag());
+
    return gulp.src('./src/index.html')
+                .pipe(replace('%%TAG%%', git.tag()))
                 .pipe(replace('%%COMMIT-ID%%', git.long()))
                 .pipe(replace('%%SHORT-COMMIT-ID%%', git.short()))
                 .pipe(minifyHTML())
