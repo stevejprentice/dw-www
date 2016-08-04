@@ -7,14 +7,26 @@
         
         <script src='script/libs.js'></script>
 
-        <link rel="stylesheet" href="style/main.css" />
+        <link rel="stylesheet" href="style/dw.css" />
     </head>
-    <body>
-        <header class="splash u-center-block">
-            <div class="content-wrapper u-center-block__content">
-                <h1>David Wesst</h1>
-                <h3><a href="http://www.westerndevs.com/bios/david_wesst/">Western Dev</a> | <a href="https://mvp.microsoft.com/en-us/PublicProfile/4032619?fullName=David%20%20Wesst">Microsoft MVP</a></h3>
-                <ul class="unstyled-list inline-list">
+    <body class="site">
+        <main>
+            <section class="splash">
+                <h1 class="title giant">David Wesst</h1>
+                <ul class="unstyled-list inline">
+                    <li>
+                        <a href="http://www.westerndevs.com/bios/david_wesst/">
+                            <h2>Western Dev</h2>
+                        </a>
+                    </li>
+                    <li class="separator">|</li>
+                    <li>
+                        <a href="https://mvp.microsoft.com/en-us/PublicProfile/4032619?fullName=David%20%20Wesst">
+                            <h2>Microsoft MVP</h2>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="unstyled-list inline links">
                     <li>
                         <a href="https://twitter.com/davidwesst">
                             <i class="fa fa-twitter fa-2x fa-fw twitter" aria-hidden="true"></i>
@@ -45,12 +57,36 @@
                             <span class="sr-only">Twitch</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="https://blog.davidwesst.com/atom.xml">
+                            <i class="fa fa-rss fa-2x fa-fw" aria-hidden="true"></i>
+                            <span class="sr-only">RSS</span>
+                        </a>
+                    </li>
+                </ul>                
+                <ul class="unstyled-list inline">
+                    <li>
+                        <a href="#about">
+                            <h3 class="subtitle">About</h3>
+                        </a>
+                    </li>
+                    <li class="separator">|</li>
+                    <li>
+                        <a href="#blog">
+                            <h3 class="subtitle">Blog</h3>
+                        </a>
+                    </li>
+                    <li class="separator">|</li>
+                    <li>
+                        <a href="#talks">
+                            <h3 class="subtitle">Talks</h3>
+                        </a>
+                    </li>
                 </ul>
-            </div>
-        </header>
-        <main>
-            <section class="about">
-                <article class="o-container o-container--large">
+            </section>
+            <section id="about" class="about">
+                <h2>// About</h2>
+                <article>
                     <p>
                         David Wesst, otherwise known as "Wessty" or "DW", is a JavaScript enthusiast who works as an enterprise software developer by day, and attempts to build video game related things by night.
                     </p>
@@ -62,39 +98,34 @@
                     </p>
                 </article>
             </section>
-            <section class="posts">
-                <article class="o-container o-container--large o-grid o-grid--small-full o-grid--medium-fit">
-                    <article class="o-grid__cell">
-                        <h2>Latest Technical Posts</h2>
-                        <ul id="techPosts" class="unstyled-list">
-                            <li class="c-list__item">Post Title</li>
-                            <li class="c-list__item">Post Title</li>
-                            <li class="c-list__item">Post Title</li>
-                            <li class="c-list__item">Post Title</li>
-                            <li class="c-list__item">Post Title</li>
-                        </ul>
-                    </article>
-                    <article class="o-grid__cell">
-                        <h2>Latest Game Dev Posts</h2>
-                        <ul id="gamedevPosts" class="unstyled-list">
-                            <li class="c-list__item">Post Title</li>
-                            <li class="c-list__item">Post Title</li>
-                            <li class="c-list__item">Post Title</li>
-                            <li class="c-list__item">Post Title</li>
-                            <li class="c-list__item">Post Title</li>
-                        </ul>
-                    </article>
+            <section id="blog" class="blog">
+                <h2>// Blog</h2>
+                <article class="description">
+                    Description goes here
                 </article>
+                <article class="posts">
+                    <ul id="techPosts" class="unstyled-list">
+                        <li>Loading...</li>
+                    </ul>
+                </article>
+            </section>
+            <section id="talks" class="talks">
+                <h2>// Talks</h2>
+                <article class="description">
+                </article>
+                <ul class="unstyled-list">
+                    <li>Coming Soon!</li>
+                </ul>
             </section>
         </main>
         <footer>
-            <article class="o-container o-container--large">
+            <div class="inline center-content">
                 <a href="https://github.com/davidwesst/dw-www/releases/tag/%%TAG%%">Version %%TAG%%</a>
-                |
+                <span class="separator">|</span>
                 <a href="https://github.com/davidwesst/dw-www/commit/%%COMMIT-ID%%" >Commit %%SHORT-COMMIT-ID%%</a>
-                | 
+                <span class="separator">|</span>
                 <a href="https://github.com/davidwesst/dw-www/">Source on GitHub</a>
-            </article>
+            </div>
         </footer>
 
         <script src="script/main.js"></script>

@@ -1,37 +1,44 @@
-//
-//  PORTRAIT AND LANDSCAPE
-//
-@media all and (max-width: 414px) and (max-height: 736px), all and (max-width: 736px) and (max-height: 414px) {
-    HEADER.splash {
-        h1 {
-            font-size: 3em;
-        }
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    .sm-show {
+        display: inherit;
+    }
 
-        h3 {
-            font-size: 1.5em;
-        }
+    .sm-hide {
+        display: none;
+    }
+    
+    .giant {
+        font-size: 6em;
+    }
 
-        .content-wrapper {
-            padding-bottom: 32px;
+    /*
+        POST LISTING
+    */
+    .posts {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+
+        .post {
+            display: flex;
+            flex-direction: row;
+            margin: 0.5em 0;
+
+            .sidebar {
+                display: flex;
+                flex-direction: column;
+
+                margin-right: 1em;
+                padding-right: 1em;
+                border-right: 1px $white solid;
+                text-align: right;
+            }
+
+            .content {
+                display: flex;
+                flex-direction: column;
+            }
         }
     }
 }
-
-//
-//  PORTRAIT ONLY
-//
-@media all and (max-width: 414px) and (max-height: 736px) {
-    .bg-color-stage {
-        background-position-x: 60%;
-    }
-}
-
-//
-//  LANDSCAPE ONLY
-//
-@media all and (max-width: 736px) and (max-height: 414px) {
-    .bg-color-stage {
-        background-position-x: 55%;
-        background-position-y: 10%;
-    }
-} 

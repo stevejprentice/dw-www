@@ -42,7 +42,7 @@ gulp.task('build-views', function() {
                 .pipe(connect.reload()); 
 });
 
-gulp.task('build-style', ['process-images','process-blaze','process-fonts','process-font-awesome'], function() {
+gulp.task('build-style', ['process-images','process-fonts','process-font-awesome'], function() {
     return gulp.src('./src/**/*.scss')
             .pipe(sass().on('error', sass.logError))
             .pipe(gulp.dest(DIST_WEB))
@@ -121,7 +121,7 @@ gulp.task('process-fonts', function() {
    
    return gulp.src(fontSrcGlob)
                 .pipe(flatten())
-                .pipe(gulp.dest(path.join(DIST_WEB, '/fonts')));
+                .pipe(gulp.dest(path.join(DIST_WEB, '/assets/fonts')));
 });
 
 gulp.task('process-images', function() {
@@ -129,5 +129,5 @@ gulp.task('process-images', function() {
    
    return gulp.src(imageSrcGlob)
                 .pipe(flatten())
-                .pipe(gulp.dest(path.join(DIST_WEB, '/img')));
+                .pipe(gulp.dest(path.join(DIST_WEB, '/assets/img')));
 });
