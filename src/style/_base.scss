@@ -158,15 +158,23 @@ h2, h3, h4, h5, h6 {
     /*
         LANDING PAGE SECTION
     */
-    .inline-sections {
-        display: flex;
-        flex-direction: column;
-    }
-
     .section {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;;
+        align-items: flex-start;
+
+        flex-shrink: 0;
+
+        footer {
+            align-self: flex-end;
+        }
+    }
+
+    .inline-sections {
+        @extend .section;
+
+        display: flex;
+        flex-direction: column;
     }
 
     /*
