@@ -1,43 +1,30 @@
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
-    .sm-show {
-        display: inherit;
-    }
+    .site {
+        .sm-show {
+            display: inherit;
+        }
 
-    .sm-hide {
-        display: none;
-    }
-    
-    .giant {
-        font-size: 6em;
-    }
+        .sm-hide {
+            display: none;
+        }
+        
+        .giant {
+            font-size: 6em;
+        }
 
-    /*
-        POST LISTING
-    */
-    .posts {
-        display: flex;
-        flex-direction: column;
-        flex-shrink: 0;
+        .large {
+            font-size: 4em;
+        }
 
-        .post {
+        .inline-sections {
             display: flex;
             flex-direction: row;
-            margin: 0.5em 0;
+            justify-content: space-around;
 
-            .sidebar {
-                display: flex;
-                flex-direction: column;
-
-                margin-right: 1em;
-                padding-right: 1em;
-                border-right: 1px $white solid;
-                text-align: right;
-            }
-
-            .content {
-                display: flex;
-                flex-direction: column;
+            .section {
+                width: 35vw;
+                height: 100%;
             }
         }
     }

@@ -84,8 +84,8 @@
                     </li>
                 </ul>
             </section>
-            <section id="about" class="about">
-                <h2>// About</h2>
+            <section id="about" class="about section">
+                <h2 class="large">// About</h2>
                 <article>
                     <p>
                         David Wesst, otherwise known as "Wessty" or "DW", is a JavaScript enthusiast who works as an enterprise software developer by day, and attempts to build video game related things by night.
@@ -98,25 +98,39 @@
                     </p>
                 </article>
             </section>
-            <section id="blog" class="blog">
-                <h2>// Blog</h2>
-                <article class="description">
-                    Description goes here
-                </article>
-                <article>
-                    <ul id="techPosts" class="unstyled-list posts">
-                        <li>Loading...</li>
+
+            <hr class="whitespace">
+
+            <div class="inline-sections">
+                <section id="blog" class="section">
+                    <header>
+                        <a href="https://blog.davidwesst.com">
+                            <h2 class="large">// Blog</h2>
+                        </a>
+                    </header>
+                    <article>
+                        <ul id="techPosts" class="unstyled-list posts">
+                            <li>Loading...</li>
+                        </ul>
+                    </article>
+                </section>
+
+                <hr class="whitespace sm-hide" />
+
+                <section id="talks" class="section">
+                    <header>
+                        <h2 class="large">// Talks</h2>
+                    </header>
+                    <article class="description">
+                    </article>
+                    <ul class="unstyled-list">
+                        <li>Coming Soon!</li>
                     </ul>
-                </article>
-            </section>
-            <section id="talks" class="talks">
-                <h2>// Talks</h2>
-                <article class="description">
-                </article>
-                <ul class="unstyled-list">
-                    <li>Coming Soon!</li>
-                </ul>
-            </section>
+                </section>
+            </div>
+
+            <hr class="whitespace" />
+
             <footer>
                 <div class="inline center-content">
                     <a href="https://github.com/davidwesst/dw-www/releases/tag/%%TAG%%">Version %%TAG%%</a>

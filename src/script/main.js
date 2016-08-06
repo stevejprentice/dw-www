@@ -16,19 +16,23 @@
                     content.push('<li>');
                     content.push('<a class="post" href="' + currPost.permalink + '">');
 
-                    content.push('<div class="date">');
-                    content.push(moment(currPost.date).format('YYYY-MM-DD'));
-                    content.push('</div>');
+                    content.push('<article class="sidebar">');
+                    content.push('<div>' + moment(currPost.date).format('YYYY') + '</div>');
+                    content.push('<div>' + moment(currPost.date).format('MMM') + '</div>');
+                    content.push('<div>' + moment(currPost.date).format('DD') + '</div>');
+                    content.push('</article>');
 
-                    content.push('<div class="title">');
+                    content.push('<article class="content">');
+
+                    content.push('<h3>');
                     content.push(currPost.title);
-                    content.push('</div>');
+                    content.push('</h3>');
 
                     if(currPost.tags && currPost.tags.length > 0) {
-                        content.push('<div class="tags">');
-
+                        content.push('<h6 class="subtitle">');
+                        content.push('Tagged with ');
                         currPost.tags.forEach(function(tag, index, arr) {
-                            content.push('<span>Tagged with ');
+                            content.push('<span>');
                             content.push(tag.name);
                             if(index !== arr.length-1) {
                                 content.push(', ');
@@ -37,13 +41,10 @@
                             content.push('</span>');
                         }, this);
 
-                        content.push('</div>');
+                        content.push('</h6>');
                     }
 
-                    content.push('<div class="excerpt">');
-                    content.push(currPost.excerpt);
-                    content.push('</div>');
-
+                    content.push('</article>');
                     content.push('</a>');
                     content.push('</li>');
 
