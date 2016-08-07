@@ -23,7 +23,7 @@ gulp.task('build-config', function() {
             .pipe(gulp.dest(DIST_WEB));
 });
 
-gulp.task('build-html', ['build-views'], function() {
+gulp.task('build-html', function() {
     console.log(git.tag());
 
    return gulp.src('./src/index.html')
@@ -33,13 +33,6 @@ gulp.task('build-html', ['build-views'], function() {
                 .pipe(minifyHTML())
                 .pipe(gulp.dest(DIST_WEB))
                 .pipe(connect.reload());
-});
-
-gulp.task('build-views', function() {
-   return gulp.src('./src/views/*.html')
-                .pipe(minifyHTML())
-                .pipe(gulp.dest(DIST_WEB + '/views'))
-                .pipe(connect.reload()); 
 });
 
 gulp.task('build-style', ['process-images','process-fonts','process-font-awesome'], function() {
@@ -52,8 +45,7 @@ gulp.task('build-style', ['process-images','process-fonts','process-font-awesome
 gulp.task('build-libs', [], function() {
     let libs = [
         './bower_components/jquery/dist/jquery.min.js',
-        './bower_components/moment/min/moment.min.js',
-        './bower_components/underscore/underscore-min.js'
+        './bower_components/moment/min/moment.min.js'
     ];
     
     return gulp.src(libs)
@@ -87,18 +79,9 @@ gulp.task('run', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch('./src/**/*.js', ['build-script']);
+    gulp.watch('./src/script/*.js', ['build-script']);
     gulp.watch('./src/*.html', ['build-html']);
-    gulp.watch('./src/views/*.html', ['build-views']);
     gulp.watch('./src/style/*.scss', ['build-style']);
-});
-
-gulp.task('process-normalize', function() {
-    var libSrc = './node_modules/normalize.css/';
-    
-    return gulp.src(path.join(libSrc, 'normalize.css'))
-                .pipe(rename('normalize.scss'))
-                .pipe(gulp.dest(path.join(libSrc, '/scss/')));
 });
 
 gulp.task('process-font-awesome', function() {
@@ -106,14 +89,6 @@ gulp.task('process-font-awesome', function() {
     return gulp.src(fontSrcGlob)
                 .pipe(flatten())
                 .pipe(gulp.dest(path.join(DIST_WEB, '/fonts')));
-});
-
-gulp.task('process-blaze', function() {
-   var libSrc = './bower_components/blaze/dist/';
-   
-    return gulp.src(path.join(libSrc, 'blaze.min.css'))
-                .pipe(rename('blaze.scss'))
-                .pipe(gulp.dest(path.join(libSrc, '/scss/')));
 });
 
 gulp.task('process-fonts', function() {
