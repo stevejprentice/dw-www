@@ -24,9 +24,9 @@
 
                     content.push('<article class="content">');
 
-                    content.push('<h3>');
+                    content.push('<h4>');
                     content.push(currPost.title);
-                    content.push('</h3>');
+                    content.push('</h4>');
 
                     if(currPost.tags && currPost.tags.length > 0) {
                         content.push('<h6 class="subtitle">');
