@@ -11,9 +11,9 @@
             function showPosts(listSelector, posts) {
                 $(listSelector).empty();
 
-                for(let i = 0; i < 5 && i < posts.length; i++) {
-                    let currPost = posts[i];
-                    let content = [];
+                for(var i = 0; i < 5 && i < posts.length; i++) {
+                    var currPost = posts[i];
+                    var content = [];
                     content.push('<li>');
                     content.push('<a class="post" href="' + currPost.permalink + '">');
 
@@ -59,7 +59,7 @@
                 $(listSelector).append('<li>' + 'There are currently no posts of this type.<br /><br /> Checkout <a href="https://blog.davidwesst.com">DW\'s blog</a> for other posts.' + '</li>');
             }
 
-            let techPostsSelector = '#techPosts';
+            var techPostsSelector = '#techPosts';
             if(DW.posts.length > 0) {
                 showPosts(techPostsSelector, DW.posts);
             }
@@ -74,9 +74,9 @@
             function showTalks(listSelector, talks) {
                 $(listSelector).empty();
 
-                for(let i = 0; i < 5 && i < talks.length; i++) {
-                    let currTalk = talks[i];
-                    let content = [];
+                for(var i = 0; i < 5 && i < talks.length; i++) {
+                    var currTalk = talks[i];
+                    var content = [];
                     content.push('<li>');
                     content.push('<a class="post" href="' + currTalk.eventUrl + '">');
 
@@ -110,7 +110,7 @@
                 $(listSelector).append('<li>' + 'There are currently no talks available.' + '</li>');
             }
 
-            let techPostsSelector = '#talkList';
+            var techPostsSelector = '#talkList';
             if(DW.talks.length > 0) {
                 showTalks(techPostsSelector, DW.talks);
             }
@@ -151,14 +151,14 @@
             if(DW.talks === '') {
                 // get post and store it
                 $.getJSON('https://raw.githubusercontent.com/davidwesst/dw-blog/gh-pages/content.json')
-                    .done((data)=> {
+                    .done(function(data) {
                         DW.storePosts(data.posts);
                     })
-                    .fail(()=> {
+                    .fail(function() {
                         DW.posts = 'error';
                         console.error('An error occured while retrieving blog posts');
                     })
-                    .always(()=> {
+                    .always(function() {
                         DW.displayPosts();
                     })
             }
@@ -170,21 +170,21 @@
             if(DW.talks === '') {
                 // get post and store it
                 $.getJSON('https://raw.githubusercontent.com/davidwesst/dw-talks/master/_data/talks.json')
-                    .done((data)=> {
+                    .done(function(data) {
                         DW.storeTalks(data.talks);
                     })
-                    .fail(()=> {
+                    .fail(function() {
                         DW.talks = 'error';
                         console.error('An error occured while retrieving talks');
                     })
-                    .always(()=> {
+                    .always(function() {
                         DW.displayTalks();
                     })
             }
         }
 
     // initialization code
-    $(document).ready(()=> {
+    $(document).ready(function() {
         if(DW.posts === '') {
             DW.getPosts();
         }

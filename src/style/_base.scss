@@ -67,8 +67,8 @@ h2, h3, h4, h5, h6 {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        flex-grow: 1;
-        flex-shrink: 1;
+        flex-grow: 0;
+        flex-shrink: 0;
         overflow: auto;
 
         padding: 0 1em;

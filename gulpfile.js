@@ -43,7 +43,7 @@ gulp.task('build-style', ['process-images','process-fonts','process-font-awesome
 });
 
 gulp.task('build-libs', [], function() {
-    let libs = [
+    var libs = [
         './bower_components/jquery/dist/jquery.min.js',
         './bower_components/moment/min/moment.min.js'
     ];
