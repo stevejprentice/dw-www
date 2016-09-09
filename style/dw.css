@@ -2243,8 +2243,8 @@ h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex-grow: 1;
-    flex-shrink: 1;
+    flex-grow: 0;
+    flex-shrink: 0;
     overflow: auto;
     padding: 0 1em; }
   .site HR.whitespace {
@@ -2301,22 +2301,22 @@ h2, h3, h4, h5, h6 {
   .site .inline-sections {
     display: flex;
     flex-direction: column; }
-  .site .posts {
+  .site .posts, .site .talks {
     display: flex;
     flex-direction: column;
     flex-shrink: 0; }
-    .site .posts .post {
+    .site .posts .post, .site .posts .talk, .site .talks .post, .site .talks .talk {
       display: flex;
       flex-direction: row;
       margin: 0.5em 0; }
-      .site .posts .post .sidebar {
+      .site .posts .post .sidebar, .site .posts .talk .sidebar, .site .talks .post .sidebar, .site .talks .talk .sidebar {
         display: flex;
         flex-direction: column;
         margin-right: 1em;
         padding-right: 1em;
         border-right: 1px #fafafa solid;
         text-align: right; }
-      .site .posts .post .content {
+      .site .posts .post .content, .site .posts .talk .content, .site .talks .post .content, .site .talks .talk .content {
         display: flex;
         flex-direction: column;
         align-content: center;
