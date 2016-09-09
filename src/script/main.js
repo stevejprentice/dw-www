@@ -3,14 +3,15 @@
     window.DW = { };
 
     DW.posts = '';
+    DW.talks = '';
 
     DW.displayPosts = 
-        (postType)=> {
+        function(postType) {
             
             function showPosts(listSelector, posts) {
                 $(listSelector).empty();
 
-                for(let i = 0; i < 5 && i <= posts.length; i++) {
+                for(let i = 0; i < 5 && i < posts.length; i++) {
                     let currPost = posts[i];
                     let content = [];
                     content.push('<li>');
@@ -67,8 +68,59 @@
             }
         }
 
+    DW.displayTalks = 
+        function() {
+            
+            function showTalks(listSelector, talks) {
+                $(listSelector).empty();
+
+                for(let i = 0; i < 5 && i < talks.length; i++) {
+                    let currTalk = talks[i];
+                    let content = [];
+                    content.push('<li>');
+                    content.push('<a class="post" href="' + currTalk.eventUrl + '">');
+
+                    content.push('<article class="sidebar">');
+                    content.push('<div>' + moment(currTalk.date).format('YYYY') + '</div>');
+                    content.push('<div>' + moment(currTalk.date).format('MMM') + '</div>');
+                    content.push('<div>' + moment(currTalk.date).format('DD') + '</div>');
+                    content.push('</article>');
+
+                    content.push('<article class="content">');
+
+                    content.push('<h4>');
+                    content.push(currTalk.title);
+                    content.push('</h4>');
+
+                    content.push('<h6 class="subtitle">');
+                    content.push(currTalk.event);
+                    content.push('</h6>');
+
+                    content.push('</article>');
+                    content.push('</a>');
+                    content.push('</li>');
+
+                    $(listSelector).append(content.join(''));
+                }
+            }
+
+            function displayNoTalkMessage(listSelector) {
+                $(listSelector).empty();
+
+                $(listSelector).append('<li>' + 'There are currently no talks available.' + '</li>');
+            }
+
+            let techPostsSelector = '#talkList';
+            if(DW.talks.length > 0) {
+                showTalks(techPostsSelector, DW.talks);
+            }
+            else {
+                displayNoTalkMessage(techPostsSelector);
+            }
+        }
+
     DW.storePosts = 
-        (posts)=> {
+        function(posts) {
             DW.posts = [];
 
             posts.forEach(function(post) {
@@ -79,11 +131,24 @@
                 DW.posts.push(post);
             }, this);
         }
+    
+    DW.storeTalks = 
+        function(talks) {
+            DW.talks = [];
+
+            talks.forEach(function(talk) {
+                if(talk.excerpt && talk.excerpt.length > 250) {
+                    talk.excerpt = talk.excerpt.slice(0,250) + '...';
+                }
+                
+                DW.talks.push(talk);
+            }, this);
+        }
 
     DW.getPosts = 
-        (postType)=> {
+        function(postType) {
             // if no post data
-            if(DW.posts === '') {
+            if(DW.talks === '') {
                 // get post and store it
                 $.getJSON('https://raw.githubusercontent.com/davidwesst/dw-blog/gh-pages/content.json')
                     .done((data)=> {
@@ -99,10 +164,33 @@
             }
         }
 
+    DW.getTalks =
+        function() {
+            // if no post data
+            if(DW.talks === '') {
+                // get post and store it
+                $.getJSON('https://raw.githubusercontent.com/davidwesst/dw-talks/master/_data/talks.json')
+                    .done((data)=> {
+                        DW.storeTalks(data.talks);
+                    })
+                    .fail(()=> {
+                        DW.talks = 'error';
+                        console.error('An error occured while retrieving talks');
+                    })
+                    .always(()=> {
+                        DW.displayTalks();
+                    })
+            }
+        }
+
     // initialization code
     $(document).ready(()=> {
         if(DW.posts === '') {
             DW.getPosts();
+        }
+
+        if(DW.talks === '') {
+            DW.getTalks();
         }
     });
 })();
