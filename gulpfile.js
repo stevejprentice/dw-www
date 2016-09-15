@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp        = require('gulp'),
+	babel		= require('gulp-babel'),
     concat      = require('gulp-concat'),
     connect     = require('gulp-connect'),
     flatten     = require('gulp-flatten'),
@@ -8,7 +9,8 @@ var gulp        = require('gulp'),
     minifyHTML  = require('gulp-minify-html'),
     rename      = require('gulp-rename'),
     replace     = require('gulp-replace'),
-    sass        = require('gulp-sass');
+    sass        = require('gulp-sass'),
+	sourcemaps	= require('gulp-sourcemaps');
     
 var path        = require('path'),
     git         = require('git-rev-sync');
@@ -31,7 +33,7 @@ gulp.task('build-html', function() {
                 .pipe(replace('%%COMMIT-ID%%', git.long()))
                 .pipe(replace('%%SHORT-COMMIT-ID%%', git.short()))
                 .pipe(minifyHTML())
-                .pipe(gulp.dest(DIST_WEB))
+				.pipe(gulp.dest(DIST_WEB))
                 .pipe(connect.reload());
 });
 
@@ -105,4 +107,17 @@ gulp.task('process-images', function() {
    return gulp.src(imageSrcGlob)
                 .pipe(flatten())
                 .pipe(gulp.dest(path.join(DIST_WEB, '/assets/img')));
+});
+
+gulp.task('build-script', function() {
+	var src = './src/script/*.js';
+
+	return gulp.src(src)
+				.pipe(sourcemaps.init())
+				.pipe(babel({
+					presets: ['es2015']
+					}))
+				.pipe(concat('dw.js'))
+				.pipe(sourcemaps.write('.'))
+				.pipe(gulp.dest('dist/script'));
 });
