@@ -110,12 +110,18 @@ gulp.task('process-images', function() {
 });
 
 gulp.task('build-script', function() {
-	var src = './src/script/*.js';
+	var src = [
+		'./src/script/*.js',
+		'./src/components/*.jsx'
+		];
 
 	return gulp.src(src)
 				.pipe(sourcemaps.init())
 				.pipe(babel({
-					presets: ['es2015']
+					presets: [
+						'es2015',
+						'react'
+						]
 					}))
 				.pipe(concat('dw.js'))
 				.pipe(sourcemaps.write('.'))
