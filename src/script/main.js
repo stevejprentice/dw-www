@@ -110,7 +110,7 @@
                 $(listSelector).append('<li>' + 'There are currently no talks available.' + '</li>');
             }
 
-            var techPostsSelector = '#talkList';
+            var techPostsSelector = '#talksList';
             if(DW.talks.length > 0) {
                 showTalks(techPostsSelector, DW.talks);
             }
@@ -185,6 +185,9 @@
 
     // initialization code
     $(document).ready(function() {
+		
+		ReactDOM.render(<PostList title="Talks" elId="talks" />, document.getElementById("talksContainer"));
+
         if(DW.posts === '') {
             DW.getPosts();
         }

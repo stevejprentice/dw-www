@@ -56,13 +56,6 @@ gulp.task('build-libs', [], function() {
             .pipe(connect.reload());
 });
 
-gulp.task('build-script', ['build-libs'], function() {
-    return gulp.src('./src/script/main.js')
-            .pipe(concat('main.js'))
-            .pipe(gulp.dest(DIST_WEB + '/script'))
-            .pipe(connect.reload()); 
-});
-
 gulp.task('deploy', function() {
     return gulp.src(DIST_WEB + '/**/*.*')
     .pipe(ghPages({
@@ -75,13 +68,14 @@ gulp.task('run', function() {
       root: DIST_WEB,
       port: 8080,
       livereload: {
-          port: 8081
-      }
-   });
+          port: 8081 
+	  } 
+	});
 });
 
 gulp.task('watch', function() {
     gulp.watch('./src/script/*.js', ['build-script']);
+	gulp.watch('./src/components/*.jsx', ['build-script']);
     gulp.watch('./src/*.html', ['build-html']);
     gulp.watch('./src/style/*.scss', ['build-style']);
 });
@@ -125,5 +119,6 @@ gulp.task('build-script', function() {
 					}))
 				.pipe(concat('dw.js'))
 				.pipe(sourcemaps.write('.'))
-				.pipe(gulp.dest('dist/script'));
+				.pipe(gulp.dest(DIST_WEB + '/script'))
+				.pipe(connect.reload());
 });
