@@ -1,7 +1,7 @@
 {
   "name": "dw-www",
-  "version": "1.2.0",
-  "description": "The www subdomain application for davidwesst.com",
+  "version": "2.0.0",
+  "description": "Public website for davidwesst.com",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,26 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/davidwesst/dw-www.git"
   },
-  "author": "David Wesst <dw@davidwesst.com>",
+  "author": "David Wesst <contact@davidwesst.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/davidwesst/dw-www/issues"
   },
-  "homepage": "https://github.com/davidwesst/dw-www#readme",
-  "devDependencies": {
-    "git-rev-sync": "^1.6.0",
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-connect": "^2.3.1",
-    "gulp-flatten": "^0.2.0",
-    "gulp-gh-pages": "^0.5.4",
-    "gulp-minify-html": "^1.0.5",
-    "gulp-rename": "^1.2.2",
-    "gulp-replace": "^0.5.4",
-    "gulp-sass": "^2.2.0"
-  },
-  "dependencies": {
-    "install": "^0.4.4",
-    "npm": "^3.7.3"
-  }
+  "homepage": "https://github.com/davidwesst/dw-www#readme"
 }
