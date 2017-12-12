@@ -1,0 +1,61 @@
+$white: rgb(245, 245, 245);
+$black: rgb(10,10,10);
+
+$display-font: 'Raleway', sans-serif;
+$regular-font: 'Open Sans', sans-serif;
+
+html, body {
+  background-color: $black;
+  color: $white;
+  
+  font-size: 16px;
+  font-family: ''
+}
+
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+  
+  font-family: $display-font;
+}
+
+h1 {
+  font-size: 6em;
+}
+
+h2 {
+  font-size: 3em;
+}
+
+a {
+  text-decoration: none;
+  color: $white;
+}
+
+header {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  
+  width: 80vw;
+  height: 100vh;
+  margin: auto;
+}
+
+.social-media {
+  & > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    display: flex;
+    flex-flow: row wrap;
+    
+    li {
+      font-size: 2em;
+      margin: 0 0.25em;
+      padding: 0;
+    }
+  }
+}
